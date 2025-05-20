@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Select, Row, Col, Divider, Input } from 'antd';
+import { Card, Form, Select, Row, Col, Divider, Input, message } from 'antd';
 import RetroButton from '../components/common/RetroButton';
 import RetroFrame from '../components/common/RetroFrame';
 
@@ -19,6 +19,10 @@ const Settings: React.FC = () => {
   const handleSave = (values: unknown) => {
     console.log('设置已保存:', values);
     localStorage.setItem('settings', JSON.stringify(values));
+    message.success("设置已保存");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   return (
